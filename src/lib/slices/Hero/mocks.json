@@ -2,7 +2,23 @@
 	{
 		"__TYPE__": "SharedSliceContent",
 		"variation": "default",
-		"primary": {},
+		"primary": {
+			"first_name": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Greg"
+			},
+			"last_name": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Martin"
+			},
+			"tag_line": {
+				"__TYPE__": "FieldContent",
+				"type": "Text",
+				"value": "Grugalicious so delicious"
+			}
+		},
 		"items": []
 	}
 ]

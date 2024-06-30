@@ -82,6 +82,41 @@ export type PageDocument<Lang extends string = string> = prismic.PrismicDocument
 export type AllDocumentTypes = PageDocument;
 
 /**
+ * Primary content in *Hero → Default → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+	/**
+	 * First Name field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.first_name
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	first_name: prismic.KeyTextField;
+
+	/**
+	 * Last Name field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.last_name
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	last_name: prismic.KeyTextField;
+
+	/**
+	 * Tag Line field in *Hero → Default → Primary*
+	 *
+	 * - **Field Type**: Text
+	 * - **Placeholder**: *None*
+	 * - **API ID Path**: hero.default.primary.tag_line
+	 * - **Documentation**: https://prismic.io/docs/field#key-text
+	 */
+	tag_line: prismic.KeyTextField;
+}
+
+/**
  * Default variation for Hero Slice
  *
  * - **API ID**: `default`
@@ -90,7 +125,7 @@ export type AllDocumentTypes = PageDocument;
  */
 export type HeroSliceDefault = prismic.SharedSliceVariation<
 	'default',
-	Record<string, never>,
+	Simplify<HeroSliceDefaultPrimary>,
 	never
 >;
 
@@ -165,6 +200,7 @@ declare module '@prismicio/client' {
 			PageDocumentDataSlicesSlice,
 			AllDocumentTypes,
 			HeroSlice,
+			HeroSliceDefaultPrimary,
 			HeroSliceVariation,
 			HeroSliceDefault,
 			RichTextSlice,
