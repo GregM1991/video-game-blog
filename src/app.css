@@ -5,3 +5,10 @@
 body {
   font-family: 'Urbanist Variable', sans-serif;
 }
+
+.background-gradient {
+  background: radial-gradient(circle at bottom center,
+      hsla(222, 80%, 60%, 0.5) 0%,
+      hsla(222, 0%, 0%, 0) 50%,
+      hsla(222, 0%, 0%, 0) 100%);
+}

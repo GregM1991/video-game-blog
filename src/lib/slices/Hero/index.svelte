@@ -33,6 +33,24 @@
 				}
 			}
 		);
+
+		tl.fromTo(
+			'.job-title',
+			{
+				opacity: 0,
+				y: 20,
+				scale: 1.2,
+				rotate: 10
+			},
+			{
+				opacity: 1,
+				y: 0,
+				duration: 1,
+				scale: 1,
+				rotate: 0,
+				ease: 'elastic.out(1, 0.3)'
+			}
+		);
 	});
 </script>
 
@@ -50,7 +68,8 @@
 			</div>
 			<div class="col-start-1 md:row-start-1">
 				<h1
-					class="mb-2 md:mb-8 text-[clamp(3rem,20vmin,13rem)] font-extrabold leading-none tracking-tighter text-nowrap"
+					aria-label={`${slice.primary.first_name} ${slice.primary.last_name}`}
+					class="mb-1 text-[clamp(3rem,20vmin,13rem)] font-extrabold leading-none tracking-tighter text-nowrap"
 				>
 					{#if firstNameLetters.length && lastNameLetters.length}
 						<span class="block text-slate-300">
@@ -70,7 +89,7 @@
 					{/if}
 				</h1>
 				<span
-					class="block bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-transparent text-2xl font-bold uppercase tracking-[.2em] md:text-4xl"
+					class="job-title opacity-0 block bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-transparent text-2xl font-bold uppercase tracking-[.2em] md:text-4xl"
 				>
 					{slice.primary.tag_line}
 				</span>
