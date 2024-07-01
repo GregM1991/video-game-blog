@@ -1,12 +1,15 @@
 <script lang="ts">
 	import { T as Threlte } from '@threlte/core';
-	import { Float } from '@threlte/extras';
+	import { createTransition, Float } from '@threlte/extras';
 	import * as THREE from 'three';
 	import { gsap } from 'gsap';
+	import { elasticOut } from 'svelte/easing';
 
 	export let position: [number, number, number] = [0, 0, 0];
 	export let geometry: THREE.BufferGeometry = new THREE.IcosahedronGeometry(3);
 	export let rate = 0.5;
+
+	let visible = false;
 
 	const materialParams = [
 		{ color: 0x2ecc71, roughness: 0 },
@@ -21,6 +24,32 @@
 	function getRandomMaterial() {
 		return new THREE.MeshStandardMaterial(gsap.utils.random(materialParams));
 	}
+	function handleClick(event: MouseEvent) {
+		if ('object' in event && event.object instanceof THREE.Mesh) {
+			gsap.to(event.object.rotation, {
+				ease: `elastic.out(1,0.3)`,
+				duration: 1.3,
+				y: `+=${gsap.utils.random(0, 3)}`,
+				x: `+=${gsap.utils.random(0, 3)}`,
+				z: `+=${gsap.utils.random(0, 3)}`,
+				yoyo: true
+			});
+
+			event.object.material = getRandomMaterial();
+		}
+	}
+
+	const bounce = createTransition((ref) => {
+		return {
+			tick(t) {
+				if (t > 0) visible = true;
+				ref.scale.set(t, t, t);
+			},
+			easing: elasticOut,
+			duration: gsap.utils.random(800, 1200),
+			delay: gsap.utils.random(0, 500)
+		};
+	});
 </script>
 
 <Threlte.Group position={position.map((p) => p * 2)}>
@@ -30,6 +59,13 @@
 		rotationIntensity={6 * rate}
 		floatIntensity={5 * rate}
 	>
-		<Threlte.Mesh {geometry} material={getRandomMaterial()}></Threlte.Mesh>
+		<Threlte.Mesh
+			in={bounce}
+			{visible}
+			{geometry}
+			material={getRandomMaterial()}
+			interactive
+			on:click={handleClick}
+		></Threlte.Mesh>
 	</Float>
 </Threlte.Group>
