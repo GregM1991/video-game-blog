@@ -9,6 +9,11 @@
 	export let geometry: THREE.BufferGeometry = new THREE.IcosahedronGeometry(3);
 	export let rate = 0.5;
 
+	const soundEffects = [
+		new Audio('/sounds/hit1.ogg'), 
+		new Audio('/sounds/hit2.ogg'), 
+		new Audio('/sounds/hit3.ogg'), 
+		];
 	let visible = false;
 
 	const materialParams = [
@@ -25,6 +30,7 @@
 		return new THREE.MeshStandardMaterial(gsap.utils.random(materialParams));
 	}
 	function handleClick(event: MouseEvent) {
+		gsap.utils.random(soundEffects).play();
 		if ('object' in event && event.object instanceof THREE.Mesh) {
 			gsap.to(event.object.rotation, {
 				ease: `elastic.out(1,0.3)`,

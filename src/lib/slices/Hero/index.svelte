@@ -1,8 +1,39 @@
 <script lang="ts">
 	import type { Content } from '@prismicio/client';
 	import Scene from './Scene.svelte';
+	import { onMount } from 'svelte';
+	import gsap from 'gsap';
 
 	export let slice: Content.HeroSlice;
+
+	const firstNameLetters = slice.primary.first_name?.split('') ?? '';
+	const lastNameLetters = slice.primary.last_name?.split('') ?? '';
+
+	onMount(() => {
+		const tl = gsap.timeline();
+
+		tl.fromTo(
+			'.name-animation',
+			{
+				x: -100,
+				opacity: 0,
+				rotate: -10
+			},
+			{
+				x: 0,
+				rotate: 0,
+				opacity: 1,
+				ease: 'elastic.out(1, 0.3)',
+				duration: 1,
+				transformOrigin: 'left top',
+				delay: 0.5,
+				stagger: {
+					each: 0.1,
+					from: 'random'
+				}
+			}
+		);
+	});
 </script>
 
 <section
@@ -21,12 +52,22 @@
 				<h1
 					class="mb-2 md:mb-8 text-[clamp(3rem,20vmin,13rem)] font-extrabold leading-none tracking-tighter text-nowrap"
 				>
-					<span class="block text-slate-300">
-						{slice.primary.first_name}
-					</span>
-					<span class="block text-slate-500 -mt-[.2em]">
-						{slice.primary.last_name}
-					</span>
+					{#if firstNameLetters.length && lastNameLetters.length}
+						<span class="block text-slate-300">
+							{#each firstNameLetters as letter, i}
+								<span class="name-animation inline-block opacity-0">
+									{letter}
+								</span>
+							{/each}
+						</span>
+						<span class="block text-slate-500 -mt-[.2em]">
+							{#each lastNameLetters as letter, i}
+								<span class="name-animation inline-block opacity-0">
+									{letter}
+								</span>
+							{/each}
+						</span>
+					{/if}
 				</h1>
 				<span
 					class="block bg-gradient-to-tr from-yellow-500 via-yellow-200 to-yellow-500 bg-clip-text text-transparent text-2xl font-bold uppercase tracking-[.2em] md:text-4xl"
