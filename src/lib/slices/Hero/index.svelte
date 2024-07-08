@@ -59,7 +59,7 @@
 	data-slice-variation={slice.variation}
 	class="px-4 md:px-6"
 >
-	<div class="mx-auto w-full max-w-7x1">
+	<div class="mx-auto w-full max-w-7xl">
 		<div class="grid min-h-[65vh] grid-cols-1 items-center md:grid-cols-2">
 			<div
 				class="relative z-10 row-span-1 row-start-1 -my-10 aspect-[1/1.3] overflow-hidden md:col-span-1 md:col-start-2 md:mt-0"

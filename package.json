@@ -15,6 +15,7 @@
 	},
 	"devDependencies": {
 		"@iconify-json/fa-brands": "^1.1.8",
+		"@iconify-json/ic": "^1.1.17",
 		"@slicemachine/adapter-sveltekit": "^0.3.42",
 		"@sveltejs/adapter-auto": "^3.2.2",
 		"@sveltejs/kit": "^2.5.15",
