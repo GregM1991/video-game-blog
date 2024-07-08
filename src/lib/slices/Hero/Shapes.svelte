@@ -24,7 +24,7 @@
 
 <!-- Pill -->
 <Geometry
-	position={[1, -0.75, 3]}
+	position={[1, -0.75, 2.5]}
 	rate={0.4}
 	geometry={new THREE.CapsuleGeometry(0.5, 1.6, 2, 16)}
 />
@@ -34,7 +34,7 @@
 
 <!-- Donut -->
 <Geometry
-	position={[-0.8, -0.75, 3.5]}
+	position={[-0.8, -0.75, 3]}
 	rate={0.5}
 	geometry={new THREE.TorusGeometry(0.6, 0.25, 16, 32)}
 />

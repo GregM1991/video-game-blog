@@ -1,0 +1,109 @@
+{
+	"format": "page",
+	"id": "settings",
+	"label": "Settings",
+	"repeatable": false,
+	"status": true,
+	"json": {
+		"Main": {
+			"name": {
+				"type": "Text",
+				"config": {
+					"label": "Name",
+					"placeholder": ""
+				}
+			},
+			"nav_item": {
+				"type": "Group",
+				"config": {
+					"label": "Nav Item",
+					"repeat": true,
+					"fields": {
+						"link": {
+							"type": "Link",
+							"config": {
+								"label": "Link",
+								"placeholder": "",
+								"select": null
+							}
+						},
+						"label": {
+							"type": "Text",
+							"config": {
+								"label": "Label",
+								"placeholder": ""
+							}
+						}
+					}
+				}
+			},
+			"cta_link": {
+				"type": "Link",
+				"config": {
+					"label": "CTA Link",
+					"placeholder": "",
+					"select": null
+				}
+			},
+			"cta_label": {
+				"type": "Text",
+				"config": {
+					"label": "CTA Label",
+					"placeholder": ""
+				}
+			},
+			"github_link": {
+				"type": "Link",
+				"config": {
+					"label": "Github Link",
+					"placeholder": "",
+					"allowTargetBlank": false,
+					"select": null
+				}
+			},
+			"linkedin_link": {
+				"type": "Link",
+				"config": {
+					"label": "LinkedIn Link",
+					"placeholder": "",
+					"allowTargetBlank": false,
+					"select": null
+				}
+			},
+			"slices": {
+				"type": "Slices",
+				"fieldset": "Slice Zone",
+				"config": {
+					"choices": {}
+				}
+			}
+		},
+		"SEO & Metadata": {
+			"meta_title": {
+				"config": {
+					"label": "Meta Title",
+					"placeholder": "A title of the page used for social media and search engines"
+				},
+				"type": "Text"
+			},
+			"meta_description": {
+				"config": {
+					"label": "Meta Description",
+					"placeholder": "A brief summary of the page"
+				},
+				"type": "Text"
+			},
+			"og_image": {
+				"config": {
+					"label": "OG Image",
+					"constraint": {
+						"height": 1260,
+						"width": 2400
+					},
+					"thumbnails": []
+				},
+				"type": "Image"
+			}
+		}
+	}
+}
