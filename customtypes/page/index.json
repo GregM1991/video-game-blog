@@ -27,13 +27,13 @@
 				"fieldset": "Slice Zone",
 				"config": {
 					"choices": {
+						"tech_list": {
+							"type": "SharedSlice"
+						},
 						"biography": {
 							"type": "SharedSlice"
 						},
 						"hero": {
-							"type": "SharedSlice"
-						},
-						"rich_text": {
 							"type": "SharedSlice"
 						}
 					}
