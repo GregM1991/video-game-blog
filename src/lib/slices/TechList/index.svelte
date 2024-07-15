@@ -24,10 +24,13 @@
 
 		tl.fromTo(".tech-row", {
 			x: (index)=>{
-				return index % 2 === 0 ? 100 : -100;
+				return index % 2 === 0 ? gsap.utils.random(600, 400) : gsap.utils.random(-600, -400);
 			}
 		}, {
-
+			x: (index)=>{
+				return index % 2 === 0 ? gsap.utils.random(-600, -400) : gsap.utils.random(600, 400);
+			},
+			ease: 'power1.inOut',
 		})
 	});
 </script>
@@ -54,9 +57,9 @@
 					style="color: {index === 7 && tech_colour ? tech_colour : 'inherit'}"
 				>
 					{tech_name}
-					<span class="text-3xl">
-						<IconCircle />
-					</span>
+				</span>
+				<span class="text-3xl">
+					<IconCircle />
 				</span>
 			{/each}
 			{tech_colour}
