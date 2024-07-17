@@ -57,6 +57,10 @@
 			const image = new Image();
 			image.src = imageUrl;
 		}
+
+		return {
+			destroy() {}
+		};
 	};
 
 	const handleMouseMove = (e: MouseEvent) => {
@@ -71,6 +75,12 @@
 			rotation: speed * (mousePos.x > lastMousePos.x ? 1 : -1),
 			ease: 'back.out(2)',
 			duration: 1.3
+		});
+		gsap.to('.hover-reveal', {
+			opacity: currentIndex === undefined ? 0 : 1,
+			visibility: 'visible',
+			ease: 'power3.out',
+			duration: 0.6
 		});
 		lastMousePos = mousePos;
 	};
@@ -115,6 +125,6 @@
 
 <!-- Hover element -->
 <div
-	class="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-100 transition-[background] duration-300"
-	style={currentIndex === undefined ? "" : `background-image: url(${contentImages[currentIndex]})`}
+	class="hover-reveal pointer-events-none absolute left-0 top-0 -z-10 h-[320px] w-[220px] rounded-lg bg-cover bg-center opacity-0 transition-[background] duration-300"
+	style={currentIndex === undefined ? '' : `background-image: url(${contentImages[currentIndex]})`}
 ></div>

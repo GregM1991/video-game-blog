@@ -10,10 +10,10 @@
 	export let rate = 0.5;
 
 	const soundEffects = [
-		new Audio('/sounds/hit1.ogg'), 
-		new Audio('/sounds/hit2.ogg'), 
-		new Audio('/sounds/hit3.ogg'), 
-		];
+		new Audio('/sounds/hit1.ogg'),
+		new Audio('/sounds/hit2.ogg'),
+		new Audio('/sounds/hit3.ogg')
+	];
 	let visible = false;
 
 	const materialParams = [
@@ -27,6 +27,10 @@
 	];
 
 	function getRandomMaterial() {
+		const randomInt = gsap.utils.random(1, 10, 1);
+		if (randomInt === 1) {
+			return new THREE.MeshNormalMaterial();
+		}
 		return new THREE.MeshStandardMaterial(gsap.utils.random(materialParams));
 	}
 	function handleClick(event: MouseEvent) {
