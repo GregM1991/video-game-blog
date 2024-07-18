@@ -1,9 +1,7 @@
 <script lang="ts">
 	import type { Content } from '@prismicio/client';
 	import { PrismicRichText } from '@prismicio/svelte';
-	import Button from '$lib/components/Button.svelte';
-	import Bounded from '$lib/components/Bounded.svelte';
-	import Heading from '$lib/components/Heading.svelte';
+	import { Button, Bounded, Heading } from '$lib/components';
 	import Avatar from './Avatar.svelte';
 
 	export let slice: Content.BiographySlice;

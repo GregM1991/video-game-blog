@@ -1,5 +1,5 @@
 <script>
-	import ContentBody from '$lib/components/ContentBody.svelte';
+	import { ContentBody } from '$lib/components';
 
 	export let data;
 </script>

@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Bounded from '$lib/components/Bounded.svelte';
-	import Heading from '$lib/components/Heading.svelte';
+	import { Bounded, Heading } from '$lib/components';
 	import type { Content } from '@prismicio/client';
 	import { PrismicRichText } from '@prismicio/svelte';
 
@@ -16,7 +15,9 @@
 			<Heading tag="h3" size="sm">
 				{item.title}
 			</Heading>
-			<p class="mt-1 flex w-fit items-center gap-1 text-2xl font-semibold tracking-light text-slate-400">
+			<p
+				class="mt-1 flex w-fit items-center gap-1 text-2xl font-semibold tracking-light text-slate-400"
+			>
 				<span>{item.time_period}</span>
 				{' '} <span class="text-3xl font-extralight">/</span>
 				{' '} <span>{item.institution}</span>

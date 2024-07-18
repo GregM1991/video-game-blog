@@ -40,13 +40,21 @@
 				.timeline({
 					defaults: { duration: 0.5, overwrite: 'auto', ease: 'power3.out' }
 				})
-				.to('.avatar', {
-					rotation: gsap.utils.clamp(-2, 2, 5 * componentPercent.x)
-				}, 0)
-				.to('.highlight', {
-					opacity: distFromCenterX - 0.7,
-					x: -20 + 30 * componentPercent.x
-				}, 0);
+				.to(
+					'.avatar',
+					{
+						rotation: gsap.utils.clamp(-2, 2, 5 * componentPercent.x)
+					},
+					0
+				)
+				.to(
+					'.highlight',
+					{
+						opacity: distFromCenterX - 0.7,
+						x: -20 + 30 * componentPercent.x
+					},
+					0
+				);
 		};
 	});
 </script>

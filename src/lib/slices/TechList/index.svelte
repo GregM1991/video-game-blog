@@ -1,6 +1,5 @@
 <script lang="ts">
-	import Bounded from '$lib/components/Bounded.svelte';
-	import Heading from '$lib/components/Heading.svelte';
+	import { Bounded, Heading } from '$lib/components';
 	import type { Content } from '@prismicio/client';
 	import { onMount } from 'svelte';
 	import IconCircle from '~icons/ic/baseline-circle';

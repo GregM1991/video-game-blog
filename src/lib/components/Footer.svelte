@@ -2,7 +2,7 @@
 	import { type Content, isFilled } from '@prismicio/client';
 	import { PrismicLink } from '@prismicio/svelte';
 	import IconGithub from '~icons/fa-brands/github';
-	import IconLinkedIn from '~icons/fa-brands/linkedin'
+	import IconLinkedIn from '~icons/fa-brands/linkedin';
 	import Bounded from './Bounded.svelte';
 	export let settings: Content.SettingsDocument;
 </script>
