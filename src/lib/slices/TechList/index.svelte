@@ -11,27 +11,35 @@
 
 	export let slice: Content.TechListSlice;
 	let component: HTMLElement;
-	
+
 	onMount(() => {
+		const perfersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (perfersReducedMotion) {
+			return;
+		}
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: component,
 				start: 'top bottom',
 				end: 'bottom top',
-				scrub: 4,
+				scrub: 4
 			}
 		});
 
-		tl.fromTo(".tech-row", {
-			x: (index)=>{
-				return index % 2 === 0 ? gsap.utils.random(600, 400) : gsap.utils.random(-600, -400);
-			}
-		}, {
-			x: (index)=>{
-				return index % 2 === 0 ? gsap.utils.random(-600, -400) : gsap.utils.random(600, 400);
+		tl.fromTo(
+			'.tech-row',
+			{
+				x: (index) => {
+					return index % 2 === 0 ? gsap.utils.random(600, 400) : gsap.utils.random(-600, -400);
+				}
 			},
-			ease: 'power1.inOut',
-		})
+			{
+				x: (index) => {
+					return index % 2 === 0 ? gsap.utils.random(-600, -400) : gsap.utils.random(600, 400);
+				},
+				ease: 'power1.inOut'
+			}
+		);
 	});
 </script>
 

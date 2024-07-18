@@ -10,6 +10,11 @@
 	const lastNameLetters = slice.primary.last_name?.split('') ?? '';
 
 	onMount(() => {
+		const perfersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (perfersReducedMotion) {
+			gsap.to(".name-animation", { opacity: 1 });
+			return;
+		}
 		const tl = gsap.timeline();
 
 		tl.fromTo(
