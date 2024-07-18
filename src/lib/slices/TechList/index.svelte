@@ -5,6 +5,7 @@
 	import IconCircle from '~icons/ic/baseline-circle';
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+	import { reducedMotion } from '$lib/stores/reducedMotion';
 
 	gsap.registerPlugin(ScrollTrigger);
 
@@ -12,8 +13,7 @@
 	let component: HTMLElement;
 
 	onMount(() => {
-		const perfersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-		if (perfersReducedMotion) {
+		if (reducedMotion) {
 			return;
 		}
 		const tl = gsap.timeline({
