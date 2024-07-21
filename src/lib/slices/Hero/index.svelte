@@ -3,7 +3,6 @@
 	import Scene from './Scene.svelte';
 	import { onMount } from 'svelte';
 	import gsap from 'gsap';
-	import { reducedMotion } from '$lib/stores/reducedMotion';
 
 	export let slice: Content.HeroSlice;
 
@@ -11,9 +10,9 @@
 	const lastNameLetters = slice.primary.last_name?.split('') ?? '';
 
 	onMount(() => {
-		if (reducedMotion) {
+		const perfersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (perfersReducedMotion) {
 			gsap.to('.name-animation', { opacity: 1 });
-			gsap.to('.job-title', { opacity: 1 });
 			return;
 		}
 		const tl = gsap.timeline();

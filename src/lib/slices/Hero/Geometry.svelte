@@ -5,7 +5,6 @@
 	import { gsap } from 'gsap';
 	import { elasticOut } from 'svelte/easing';
 	import { onMount } from 'svelte';
-	import { reducedMotion } from '$lib/stores/reducedMotion';
 
 	export let position: [number, number, number] = [0, 0, 0];
 	export let geometry: THREE.BufferGeometry = new THREE.IcosahedronGeometry(3);
@@ -65,7 +64,8 @@
 	});
 
 	onMount(() => {
-		reducedMotionRate = reducedMotion ? 0 : 1;
+		const perfersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		reducedMotionRate = perfersReducedMotion ? 0 : 1;
 	});
 
 	$: compoundRate = rate * reducedMotionRate;

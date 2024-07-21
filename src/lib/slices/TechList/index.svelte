@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { Bounded, Heading } from '$lib/components';
+	import Bounded from '$lib/components/Bounded.svelte';
+	import Heading from '$lib/components/Heading.svelte';
 	import type { Content } from '@prismicio/client';
 	import { onMount } from 'svelte';
 	import IconCircle from '~icons/ic/baseline-circle';
 	import { gsap } from 'gsap';
 	import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-	import { reducedMotion } from '$lib/stores/reducedMotion';
 
 	gsap.registerPlugin(ScrollTrigger);
 
@@ -13,7 +13,8 @@
 	let component: HTMLElement;
 
 	onMount(() => {
-		if (reducedMotion) {
+		const perfersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (perfersReducedMotion) {
 			return;
 		}
 		const tl = gsap.timeline({
