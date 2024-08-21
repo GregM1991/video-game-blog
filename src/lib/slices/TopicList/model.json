@@ -1,7 +1,7 @@
 {
 	"id": "tech_list",
 	"type": "SharedSlice",
-	"name": "TechList",
+	"name": "TopicList",
 	"description": "TechList",
 	"variations": [
 		{

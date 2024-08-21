@@ -843,11 +843,11 @@ type RichTextSliceVariation = RichTextSliceDefault;
 export type RichTextSlice = prismic.SharedSlice<'rich_text', RichTextSliceVariation>;
 
 /**
- * Item in *TechList → Default → Primary → Item*
+ * Item in *TopicList → Default → Primary → Item*
  */
 export interface TechListSliceDefaultPrimaryItemItem {
 	/**
-	 * Tech Name field in *TechList → Default → Primary → Item*
+	 * Tech Name field in *TopicList → Default → Primary → Item*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
@@ -857,7 +857,7 @@ export interface TechListSliceDefaultPrimaryItemItem {
 	tech_name: prismic.KeyTextField;
 
 	/**
-	 * Tech Color field in *TechList → Default → Primary → Item*
+	 * Tech Color field in *TopicList → Default → Primary → Item*
 	 *
 	 * - **Field Type**: Color
 	 * - **Placeholder**: *None*
@@ -868,11 +868,11 @@ export interface TechListSliceDefaultPrimaryItemItem {
 }
 
 /**
- * Primary content in *TechList → Default → Primary*
+ * Primary content in *TopicList → Default → Primary*
  */
 export interface TechListSliceDefaultPrimary {
 	/**
-	 * Heading field in *TechList → Default → Primary*
+	 * Heading field in *TopicList → Default → Primary*
 	 *
 	 * - **Field Type**: Text
 	 * - **Placeholder**: *None*
@@ -882,7 +882,7 @@ export interface TechListSliceDefaultPrimary {
 	heading: prismic.KeyTextField;
 
 	/**
-	 * Item field in *TechList → Default → Primary*
+	 * Item field in *TopicList → Default → Primary*
 	 *
 	 * - **Field Type**: Group
 	 * - **Placeholder**: *None*
@@ -893,7 +893,7 @@ export interface TechListSliceDefaultPrimary {
 }
 
 /**
- * Default variation for TechList Slice
+ * Default variation for TopicList Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default
@@ -906,12 +906,12 @@ export type TechListSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *TechList*
+ * Slice variation for *TopicList*
  */
 type TechListSliceVariation = TechListSliceDefault;
 
 /**
- * TechList Shared Slice
+ * TopicList Shared Slice
  *
  * - **API ID**: `tech_list`
  * - **Description**: TechList
